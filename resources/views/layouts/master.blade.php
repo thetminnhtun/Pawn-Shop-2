@@ -14,8 +14,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <title>WaiYan</title>
 
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-  {{-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css"> --}}
-  <link rel="stylesheet" type="text/css" href="https://adminlte.io/themes/dev/AdminLTE/plugins/datatables/dataTables.bootstrap4.css">
+  <link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap4.min.css') }}">
+  @yield('css')
+  {{-- <link rel="stylesheet" type="text/css" href="https://adminlte.io/themes/dev/AdminLTE/plugins/datatables/dataTables.bootstrap4.css"> --}}
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper" id="app">
@@ -28,19 +29,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
       </li>
     </ul>
-
-    <!-- SEARCH FORM -->
-    <form class="form-inline ml-3">
-      <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fa fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
-
   </nav>
   <!-- /.navbar -->
 
@@ -80,7 +68,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ url('customer') }}" class="nav-link">
                   <i class="nav-icon far fa-circle text-warning"></i>
                   <p>Daily Report</p>
                 </a>
@@ -108,7 +96,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               onclick="event.preventDefault();
               document.getElementById('logout-form').submit();"
               class="nav-link">
-              <i class="nav-icon fa fa-th"></i>
+              <i class="nav-icon fas fa-sign-out-alt text-danger"></i>
               <p>
                 Logout
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -145,9 +133,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- REQUIRED SCRIPTS -->
 
 <script src="{{ asset('/js/app.js') }}"></script>
-{{-- <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.js"></script> --}}
-<script type="text/javascript" src="https://adminlte.io/themes/dev/AdminLTE/plugins/datatables/jquery.dataTables.js"></script>
-<script type="text/javascript" src="https://adminlte.io/themes/dev/AdminLTE/plugins/datatables/dataTables.bootstrap4.js"></script>
+<script src="{{ asset('/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('/js/dataTables.bootstrap4.min.js') }}"></script>
+
+{{-- <script type="text/javascript" src="https://adminlte.io/themes/dev/AdminLTE/plugins/datatables/jquery.dataTables.js"></script>
+<script type="text/javascript" src="https://adminlte.io/themes/dev/AdminLTE/plugins/datatables/dataTables.bootstrap4.js"></script> --}}
 @yield('js')
 </body>
 </html>
